@@ -19,25 +19,48 @@
     }, 3000);
     
     function myFunction() {
-      var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqbGxBQ2FpYS1SQm41ZW9CM1FzakhTZWdETERtZ3xBQ3Jtc0tsc3lHbDNlNnBJWTFMajcxNU1nYWc3ZGhkdDNIZmFaZWlNb2lmYU5uZEZvdzRyOV9mYW5uajdnNVdmS1UxVUg4V2piN0JGY0JoM2VHano5N28zM1gyNEU3amx6UTZYVmxBLTFxVnJEMFZ3ZHFGV2RtVQ&q=https%3A%2F%2Fv.ht%2FJkrjw&html_redirect=1";
-      
-      var fallback = "https://v.ht/Jkrjw";
+  var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqbGxBQ2FpYS1SQm41ZW9CM1FzakhTZWdETERtZ3xBQ3Jtc0tsc3lHbDNlNnBJWTFMajcxNU1nYWc3ZGhkdDNIZmFaZWlNb2lmYU5uZEZvdzRyOV9mYW5uajdnNVdmS1UxVUg4V2piN0JGY0JoM2VHano5N28zM1gyNEU3amx6UTZYVmxBLTFxVnJEMFZ3ZHFGV2RtVQ&q=https%3A%2F%2Fv.ht%2FJkrjw&html_redirect=1";
+  
+  var fallback = "https://v.ht/Jkrjw";
 
-      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-          window.location = app;
-          window.setTimeout(function() {
-              window.location = fallback;
-          }, 25);
-      } else {
+  if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    var countdownElement = document.createElement("div");
+    countdownElement.id = "countdown";
+    countdownElement.style.position = "fixed";
+    countdownElement.style.top = "0";
+    countdownElement.style.left = "0";
+    countdownElement.style.width = "100%";
+    countdownElement.style.height = "100%";
+    countdownElement.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    countdownElement.style.color = "#fff";
+    countdownElement.style.fontSize = "5em";
+    countdownElement.style.textAlign = "center";
+    countdownElement.style.paddingTop = "20%";
+    document.body.appendChild(countdownElement);
+
+    var secondsLeft = 5;
+    var countdownInterval = setInterval(function() {
+      countdownElement.innerHTML = secondsLeft;
+      secondsLeft--;
+      if (secondsLeft < 0) {
+        clearInterval(countdownInterval);
+        window.location = app;
+        window.setTimeout(function() {
           window.location = fallback;
+        }, 25);
       }
+    }, 1000);
+  } else {
+    window.location = fallback;
+  }
 
-      function killPopup() {
-          window.removeEventListener('pagehide', killPopup);
-      }
+  function killPopup() {
+    window.removeEventListener('pagehide', killPopup);
+  }
 
-      window.addEventListener('pagehide', killPopup);
-    }
+  window.addEventListener('pagehide', killPopup);
+}
+
 </script>
 </body>
 </html>
